@@ -10,16 +10,19 @@ const PostRoutes=require("./Routes/PostRoute")
 app.use(express.json())
 app.use(express.urlencoded())
 
+app.use(cors({
+    origin:["http://localhost:5173",
+       "https://esphere-blog-client-v3d3.vercel.app"],
+       credentials: true
+}))
+
 app.use("/apiUser",UserRoutes)
 app.use("/apiComment",CommentRoutes)
 app.use("/apiPosts",PostRoutes)
 
 ConnectDB()
 
-app.use(cors({
-    origin:["http://localhost:5173",
-       "https://esphere-blog-client-v3d3.vercel.app/"]
-}))
+
 app.listen(port,()=>{
     console.log(`server running at ${port}`)
 })
