@@ -65,6 +65,7 @@ const SignupUser=async(req,res)=>{
 
     try{
         const {username,email,password,role}=req.body
+        console.log(req.body)
 
     const UserExists=await UserModel.findOne({email})
     if(UserExists){
@@ -88,6 +89,7 @@ const SignupUser=async(req,res)=>{
     res.status(201).json({
         message:"User created Successfully",
         user:{
+            username:finalData.username,
             id:finalData._id,
             email:finalData.email,
             role:finalData.role
