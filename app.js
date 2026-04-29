@@ -17,7 +17,8 @@ app.use("/apiPosts",PostRoutes)
 ConnectDB()
 
 app.use(cors({
-    origin:["https://esphere-blog-client-v3d3.vercel.app/"]
+    origin:["http://localhost:5173",
+       "https://esphere-blog-client-v3d3.vercel.app/"]
 }))
 app.listen(port,()=>{
     console.log(`server running at ${port}`)
