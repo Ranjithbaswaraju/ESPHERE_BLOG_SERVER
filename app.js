@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded())
 
 app.use(cors({
-    origin:["http://localhost:5173",
+    origin:["http://localhost:5174",
        "https://esphere-blog-client-v3d3.vercel.app"],
        credentials: true
 }))

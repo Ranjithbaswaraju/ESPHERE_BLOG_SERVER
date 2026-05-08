@@ -69,7 +69,7 @@ const SignupUser=async(req,res)=>{
 
     const UserExists=await UserModel.findOne({email})
     if(UserExists){
-        return res.status(400).json({message:"All your Exists please Login !! Thank you"})
+        return res.status(400).json({message:"Already user Exists please Login !! Thank you"})
     }
 
     //HashPassword
