@@ -1,28 +1,31 @@
-const express=require("express")
-const app=express()
-const port=3100;
-const cors=require("cors")
+const express = require("express");
+const app = express();
+const port = 3100;
+const cors = require("cors");
 
 const { ConnectDB } = require("./db_configure/db");
-const UserRoutes=require("./Routes/userRoutes")
-const CommentRoutes=require("./Routes/CommentRoute")
-const PostRoutes=require("./Routes/PostRoute")
-app.use(express.json())
-app.use(express.urlencoded())
+const UserRoutes = require("./Routes/userRoutes");
+const CommentRoutes = require("./Routes/CommentRoute");
+const PostRoutes = require("./Routes/PostRoute");
+app.use(express.json());
+app.use(express.urlencoded());
 
-app.use(cors({
-    origin:["http://localhost:5173/",
-       "https://esphere-blog-client.vercel.app/"],
-       credentials: true
-}))
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://esphere-blog-client.vercel.app",
+    ],
+    credentials: true,
+  }),
+);
 
-app.use("/apiUser",UserRoutes)
-app.use("/apiComment",CommentRoutes)
-app.use("/apiPosts",PostRoutes)
+app.use("/apiUser", UserRoutes);
+app.use("/apiComment", CommentRoutes);
+app.use("/apiPosts", PostRoutes);
 
-ConnectDB()
+ConnectDB();
 
-
-app.listen(port,()=>{
-    console.log(`server running at ${port}`)
-})
+app.listen(port, () => {
+  console.log(`server running at ${port}`);
+});
