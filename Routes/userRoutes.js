@@ -4,7 +4,7 @@ const { LoginUser, LogoutUser, GetAllUsers,SignupUser } = require("../Controller
 const router=express.Router()
 
 router.post("/loginUser",LoginUser)
-router.post("/logoutUser",LogoutUser)
+router.get("/logoutUser",LogoutUser)
 router.get("/getAllUsers",GetAllUsers)
 router.post("/signUpUser",SignupUser)
 module.exports=router

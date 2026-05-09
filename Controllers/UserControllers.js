@@ -45,10 +45,14 @@ const LoginUser=async(req,res)=>{
 
 const LogoutUser=(req,res)=>{
     try{
-        res.status(200).json({message:"Logout Successfully !!"})
+     res.status(200).json({success:true,
+            message:"Logout Successfully !!"})
     }
     catch(err){
-        res.status(500).json({message:"Unable to Logout please try again later!!"})
+        console.log(err)
+         res.status(500).json({
+            success:false,
+            message:"Unable to Logout please try again later!!"})
     }
 }
 const GetAllUsers=async(req,res)=>{
